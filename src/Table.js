@@ -1,27 +1,25 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import {} from "./utils";
-import classnames from "classnames";
 import Player from "./Player";
 import Card from "./Card";
+
+import { makeStyles } from "@material-ui/core/styles";
 import green from "@material-ui/core/colors/green";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
-    width: "100vw",
-    position: "fixed",
-    right: "50%",
-    top: "50%",
-    transform: "translateY(-50%) translateX(50%)",
-    backgroundColor: "lightblue",
+    height: "100%",
+    width: "100%",
+    background:
+      "radial-gradient(circle, rgba(194,231,237,1) 0%, rgba(141,178,238,1) 100%)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
   table: {
-    height: "80%",
-    width: "80%",
+    transform: "translateY(-20%)",
+    height: "50%",
+    width: "70%",
     borderRadius: "50%",
     border: `8px solid ${green[200]}`,
     backgroundColor: green[400],
@@ -36,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
   },
   communityCards: {
-    height: "20%",
+    height: "25%",
     width: "65%",
     display: "flex",
     justifyContent: "flex-start",
@@ -44,11 +42,17 @@ const useStyles = makeStyles((theme) => ({
   pot: {
     fontSize: 42,
     position: "absolute",
-    transform: "translateY(-200%)",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    transform: "translateY(-12vh)",
+    backgroundColor: "rgba(0,0,0,0.4)",
     color: "white",
     borderRadius: 40,
     padding: "12px 36px",
+  },
+  button: {
+    position: "absolute",
+    zIndex: 10,
+    color: "gold",
+    fontSize: 60,
   },
 }));
 
@@ -59,7 +63,9 @@ function Table(props) {
   return (
     <div className={classes.root}>
       <div className={classes.table}>
-        <div className={classes.pot}>{`POT: ${pot}`}</div>
+        <div className={classes.pot}>
+          <Typography variant="h4">{`POT: ${pot}`}</Typography>
+        </div>
         <div className={classes.communityCards}>
           {communityCards.map((c) => (
             <Card
@@ -83,7 +89,7 @@ function Table(props) {
                   (2 * 3.14 * p.position) / spots
                 )} * 40vw),calc(${Math.sin(
                   (2 * 3.14 * p.position) / spots
-                )} * 40vh)`,
+                )} * 30vh)`,
               }}
             />
           );

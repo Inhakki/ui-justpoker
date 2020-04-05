@@ -1,4 +1,8 @@
-const Game = {
+const TestGame = {
+  missionControl: {
+    pot: 18050,
+    heroStack: 43020,
+  },
   table: {
     spots: 9,
     pot: 18050,
@@ -12,7 +16,7 @@ const Game = {
         number: 12,
       },
       {
-        suit: "SPADES",
+        suit: "HEARTS",
         number: 1,
       },
       {
@@ -24,7 +28,6 @@ const Game = {
         number: 2,
       },
     ],
-
     players: [
       {
         name: "Rick Dolo",
@@ -96,6 +99,7 @@ const Game = {
         },
       },
       {
+        button: true,
         name: "Langus Yanger",
         position: 4,
         stack: 323,
@@ -130,9 +134,10 @@ const Game = {
         },
       },
       {
+        hero: true,
         name: "Jimmy Dean",
         position: 6,
-        stack: 1342,
+        stack: 43020,
         hand: {
           cards: [
             {
@@ -147,9 +152,8 @@ const Game = {
         },
       },
       {
-        hero: true,
         name: "Nicki Lam",
-        stack: 9175423,
+        stack: 20440,
         position: 7,
         hand: {
           cards: [
@@ -165,7 +169,6 @@ const Game = {
         },
       },
       {
-        hero: true,
         name: "Mhumngus",
         stack: 9175423,
         position: 8,
@@ -186,4 +189,4 @@ const Game = {
   },
 };
 
-export default Game;
+export default TestGame;

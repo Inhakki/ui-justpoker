@@ -15,12 +15,18 @@ const useStyles = makeStyles((theme) => ({
 
 function Hand(props) {
   const classes = useStyles();
+  const { hidden } = props;
   const { cards } = props.hand;
 
   return (
     <div className={classes.root}>
       {cards.map((c) => (
-        <Card suit={c.suit} number={c.number} textPosition="top" />
+        <Card
+          suit={c.suit}
+          number={c.number}
+          hidden={hidden}
+          textPosition="top"
+        />
       ))}
     </div>
   );

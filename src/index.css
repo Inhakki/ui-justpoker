@@ -4,6 +4,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+}
 * {
   font-family: "Futura";
 }

@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     color: "white",
   },
+  hidden: {
+    backgroundColor: "grey",
+  },
   center: {
     position: "relative",
     top: "50%",
@@ -48,8 +51,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Card(props) {
   const classes = useStyles();
-  const { suit, number, textPosition, fontSize, style } = props;
+  const { suit, number, textPosition, fontSize, style, hidden } = props;
 
+  if (hidden) {
+    return (
+      <div className={classnames(classes.root, classes.hidden)} style={style} />
+    );
+  }
   return (
     <div className={classnames(classes.root, classes[suit])} style={style}>
       <div

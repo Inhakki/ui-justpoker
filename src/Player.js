@@ -1,8 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import {} from "./utils";
 import classnames from "classnames";
 import Hand from "./Hand";
+
+import { makeStyles } from "@material-ui/core/styles";
+import yellow from "@material-ui/core/colors/yellow";
+import Slider from "@material-ui/core/Slider";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0 5px 10px rgba(59, 43, 91, 0.7)",
   },
 
+  act: {
+    backgroundColor: yellow[300],
+  },
   beacon: {
     "&:before": {
       zIndex: -1,
@@ -39,9 +45,8 @@ const useStyles = makeStyles((theme) => ({
       content: '""',
       width: "100%",
       height: "100%",
-      border: "12px solid rgb(0, 255, 0)",
       borderRadius: "50%",
-      boxShadow: "0px 0px 2px 2px rgb(0, 255, 0)",
+      boxShadow: "0px 0px 16px 16px rgb(255, 255, 0)",
       "-webkit-animation": "$beacon 1.8s infinite linear",
       animation: "$beacon 1.8s infinite linear",
     },
@@ -67,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 function Default(props) {
   const classes = useStyles();
   const { className, style } = props;
-  const { stack, hand, name, toAct } = props.player;
+  const { stack, hand, name, toAct, hero } = props.player;
 
   return (
     <div
@@ -76,8 +81,14 @@ function Default(props) {
       })}
       style={style}
     >
-      <Hand hand={hand} />
-      <div className={classes.stack}>{stack}</div>
+      <Hand hand={hand} hidden={!hero} />
+      <div
+        className={classnames(classes.stack, {
+          [classes.act]: toAct,
+        })}
+      >
+        <Typography variant="subtitle">{stack}</Typography>
+      </div>
       <div className={classes.name}>{name}</div>
     </div>
   );
