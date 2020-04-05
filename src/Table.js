@@ -59,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
 function Table(props) {
   const classes = useStyles();
   const { players, communityCards, spots, pot } = props.table;
-
   return (
     <div className={classes.root}>
       <div className={classes.table}>
